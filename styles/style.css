@@ -52,6 +52,7 @@
   --main-footer-soc-hover-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --main-cars-hover-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --main-backdrop-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --main-modal-icon-close: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 p,
@@ -133,7 +134,7 @@ body {
 }
 .header-link {
   color: var(--main-header-item-color, #2e2f42);
-  transition: var(--main-header-hover-focus-transition);
+  transition: color var(--main-header-hover-focus-transition);
 }
 .header-link:is(:hover, :focus) {
   color: var(--main-header-link-hover-color, #4d5ae5);
@@ -147,6 +148,8 @@ body {
   height: 4px;
   background: #404bbf;
   border-radius: 2px;
+  position: relative;
+  top: 90%;
 }
 .header-line-portfolio {
 }
@@ -156,6 +159,8 @@ body {
   height: 4px;
   background: #404bbf;
   border-radius: 2px;
+  position: relative;
+  top: 90%;
 }
 
 .header-address {
@@ -173,7 +178,7 @@ body {
   letter-spacing: 0.02em;
   color: var(--main-header-mail-color, #434455);
   font-style: normal;
-  transition: var(--main-header-hover-focus-transition);
+  transition: color var(--main-header-hover-focus-transition);
 }
 .header-mail:is(:hover, :focus) {
   color: var(--main-header-mail-hover-color, #4d5ae5);
@@ -184,7 +189,7 @@ body {
   letter-spacing: 0.02em;
   color: var(--main-header-tell-color, #434455);
   font-style: normal;
-  transition: var(--main-header-hover-focus-transition);
+  transition: color var(--main-header-hover-focus-transition);
 }
 .header-tell:is(:hover, :focus) {
   color: var(--main-header-tell-hover-color, #4d5ae5);
@@ -242,7 +247,7 @@ body {
 
   min-width: 169px;
   min-height: 56px;
-  transition: var(--main-hero-btn-hover-transition);
+  transition: background var(--main-hero-btn-hover-transition);
 }
 .hero-btn:is(:hover, :focus) {
   background: var(--main-hero-btn-hover-background, #404bbf);
@@ -405,7 +410,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--main-team-soc-link-background-color, #4d5ae5);
-  transition: var(--main-team-soc-hover-transition);
+  transition: background var(--main-team-soc-hover-transition);
 }
 .team-soc-link:is(:hover, :focus) {
   background: var(--main-team-soc-link-hover-background, #404bbf);
@@ -446,12 +451,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: var(--main-castomers-hover-transition);
+  transition: fill var(--main-castomers-hover-transition);
 }
 
 .castomers-icon {
   fill: var(--main-castomers-icon-fill, #8e8f99);
-  transition: var(--main-castomers-hover-transition);
+  transition: border-color var(--main-castomers-hover-transition);
 }
 .castomers-link:is(:hover, :focus) {
   border-color: var(--main-castomers-link-hover-border-color, #404bbf);
@@ -522,7 +527,7 @@ body {
   justify-content: center;
   align-items: center;
   background: var(--main-footer-soc-link-background, rgba(255, 255, 255, 0.1));
-  transition: var(--main-footer-soc-hover-transition);
+  transition: background var(--main-footer-soc-hover-transition);
 }
 .footer-soc-link:is(:hover, :focus) {
   background: var(--main-footer-soc-link-hover-background, #31d0aa);
@@ -546,7 +551,10 @@ body {
   border: 1px solid var(--main-filtres-btn-portfolio-border, #e7e9fc);
   border-radius: 4px;
   cursor: pointer;
-  transition: var(--main-filtres-btn-portfolio-hover-transition);
+  transition: color var(--main-filtres-btn-portfolio-hover-transition),
+    background var(--main-filtres-btn-portfolio-hover-transition),
+    box-shadow var(--main-filtres-btn-portfolio-hover-transition),
+    border-color var(--main-filtres-btn-portfolio-hover-transition);
 }
 .filtres-btn-portfolio:is(:hover, :focus) {
   color: var(--main-filtres-btn-portfolio-hover-color, #ffffff);
@@ -588,7 +596,7 @@ body {
   mix-blend-mode: normal;
   height: 100%;
   transform: translateY(100%);
-  transition: var(--main-cars-hover-transition);
+  transition: transform var(--main-cars-hover-transition);
 }
 .cards-text {
   padding-bottom: 32px;
@@ -612,7 +620,7 @@ body {
 }
 .filter-cards-link {
   display: block;
-  transition: var(--main-cars-hover-transition);
+  transition: box-shadow var(--main-cars-hover-transition);
 }
 .filter-cards-link:is(:hover, :focus) {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
@@ -675,11 +683,21 @@ body {
   justify-content: center;
   align-items: center;
   margin-left: auto;
+  cursor: pointer;
+  transition: background var(--main-modal-icon-close);
+}
+.modal-close:is(:hover, :focus) {
+  background: #404bbf;
 }
 .icon-close {
   width: 8px;
   height: 8px;
+  transition: fill var(--main-modal-icon-close);
 }
+.modal-close:is(:hover, :focus) .icon-close {
+  fill: #ffffff;
+}
+
 .is-hidden {
   opacity: 0;
   visibility: hidden;
